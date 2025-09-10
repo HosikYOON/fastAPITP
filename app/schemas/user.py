@@ -3,19 +3,19 @@ from typing import Optional
 from datetime import datetime
 
 
-# Common base for user-related schemas
+# 베이스 모델
 class UserBase(BaseModel):
     username: str
     email: str
     name: str
 
 
-# Schema for creating a new user
+# 회원가입용
 class UserCreate(UserBase):
     password: str
 
 
-# Schema for updating user information
+# 회원 정보 수장
 class UserUpdate(BaseModel):
     username: Optional[str] = None
     email: Optional[str] = None
@@ -23,17 +23,17 @@ class UserUpdate(BaseModel):
     name: Optional[str] = None
 
 
-# Schema representing a user in the database (for internal use)
+# 내부 사용용
 class UserInDB(UserBase):
     user_id: int
-    password: str  # Stored hashed password
+    password: str
     created_at: Optional[datetime]
 
     class Config:
         from_attributes = True
 
 
-# Schema for reading user data (sent to client)
+# 유저 정보 읽어오기
 class UserRead(UserBase):
     user_id: int
     created_at: Optional[datetime]
@@ -42,7 +42,7 @@ class UserRead(UserBase):
         from_attributes = True
 
 
-# Simple schema for relationships
+# Foreign Key 용 간단한 데이터베이스
 class UserSimple(BaseModel):
     user_id: int
     username: str
