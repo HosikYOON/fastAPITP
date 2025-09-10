@@ -1,14 +1,16 @@
 from pydantic_settings import BaseSettings
+from pydantic import Field
 
 
 class Settings(BaseSettings):
-    db_user: str = "root"
-    db_password: str = "12345"
-    db_host: str = "localhost"
-    db_port: str = "3306"
-    db_name: str = "mall"
+    db_user: str = Field(..., alias="DB_USER")
+    db_password: str = Field(..., alias="DB_PASSWORD")
+    db_host: str = Field("localhost", alias="DB_HOST")
+    db_port: str = Field("3306", alias="DB_PORT")
+    db_name: str = Field(..., alias="DB_NAME")
 
     class Config:
+        env_file = ".env"
         case_sensitive = True
         extra = "allow"
         populate_by_name = True
