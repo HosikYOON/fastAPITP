@@ -1,12 +1,9 @@
+from __future__ import annotations
 from app.db.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from datetime import datetime
 from sqlalchemy import String, TIMESTAMP, func
 from typing import Optional, List
-
-from app.db.models.cart import Cart
-from app.db.models.order import Order
-from app.db.models.review import Review
 
 
 class User(Base):

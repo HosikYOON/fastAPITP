@@ -1,7 +1,8 @@
+from __future__ import annotations
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
-from . import user, product  # Import related schemas
+from . import user # Import related schemas
 
 
 # Schema for creating a new review
@@ -19,7 +20,7 @@ class ReviewRead(BaseModel):
     comment: str
     created_at: Optional[datetime]
     user: user.UserSimple  # Nested user schema
-    product: product.ProductSimple  # Nested product schema
+    product: ProductSimple  # Nested product schema
 
     class Config:
         from_attributes = True

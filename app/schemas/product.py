@@ -1,10 +1,7 @@
+from __future__ import annotations
 from pydantic import BaseModel
 from typing import List, Optional
 from decimal import Decimal
-
-# Use forward references for ReviewRead, which is in a different file
-from . import review
-
 
 # Schema for creating or updating a product
 class ProductCreate(BaseModel):
@@ -21,7 +18,7 @@ class ProductRead(BaseModel):
     description: Optional[str] = None
     price: Decimal
     stock_quantity: int
-    reviews: List[review.ReviewRead] = []
+    reviews: List[ReviewRead] = []
 
     class Config:
         from_attributes = True

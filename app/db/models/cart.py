@@ -1,10 +1,10 @@
+from __future__ import annotations
 from app.db.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Integer, ForeignKey, Table, Column, Numeric
 from typing import List
 
 from app.db.models.product import Product
-from app.db.models.user import User
 
 # Association Table for the many-to-many relationship between Cart and Product
 cart_item_association = Table(

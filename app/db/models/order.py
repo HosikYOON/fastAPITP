@@ -1,3 +1,4 @@
+from __future__ import annotations
 from app.db.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import (
@@ -14,7 +15,6 @@ from typing import Optional, List
 from datetime import datetime
 
 from app.db.models.product import Product
-from app.db.models.user import User
 
 # Association Table for the many-to-many relationship between Order and Product
 order_product_association = Table(
