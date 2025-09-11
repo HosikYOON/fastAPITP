@@ -5,6 +5,8 @@ from typing import List
 from app.db.database import get_db
 from app.schemas.review import ReviewRead, ReviewCreate
 from app.services.review_service import ReviewService
+from app.db.models.user import User
+from app.middlewares.authentication import get_current_user
 
 router = APIRouter()
 
@@ -15,9 +17,11 @@ async def get_review_service(db: AsyncSession = Depends(get_db)) -> ReviewServic
 
 @router.post("/", response_model=ReviewRead)
 async def create_review(
-    review: ReviewCreate, review_service: ReviewService = Depends(get_review_service)
+    review: ReviewCreate, 
+    review_service: ReviewService = Depends(get_review_service),
+    current_user: User = Depends(get_current_user)
 ):
-    return await review_service.create_review(review=review)
+    return await review_service.create_review(review=review, user_id=current_user.user_id)
 
 
 @router.get("/product/{product_id}", response_model=List[ReviewRead])

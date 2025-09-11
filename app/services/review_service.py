@@ -9,8 +9,8 @@ class ReviewService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def create_review(self, review: ReviewCreate) -> Review:
-        return await review_repository.create_review(self.db, review)
+    async def create_review(self, review: ReviewCreate, user_id: int) -> Review:
+        return await review_repository.create_review(self.db, review, user_id)
 
     async def get_review(self, review_id: int) -> Optional[Review]:
         return await review_repository.get_review(self.db, review_id)

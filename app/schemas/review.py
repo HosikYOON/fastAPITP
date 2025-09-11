@@ -9,7 +9,6 @@ from . import user # Import related schemas
 class ReviewCreate(BaseModel):
     rating: int
     comment: str
-    user_id: int
     product_id: int
 
 

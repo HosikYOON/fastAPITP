@@ -1,3 +1,4 @@
+from __future__ import annotations
 from app.db.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, Integer, Text, Numeric
@@ -17,3 +18,9 @@ class Product(Base):
 
     # Relationships
     reviews: Mapped[List["Review"]] = relationship(back_populates="product")
+    carts: Mapped[List["Cart"]] = relationship(
+        secondary="cart_item_association", back_populates="products"
+    )
+    orders: Mapped[List["Order"]] = relationship(
+        secondary="order_product_association", back_populates="products"
+    )
