@@ -12,9 +12,13 @@
   - 권한을 부여해주세요.
 
 ```sql
+-- mall:12345 유저 생성
 CREATE USER 'mall'@'localhost' IDENTIFIED BY '12345';
+-- mall 유저에 권한 부여
 GRANT ALL PRIVILEGES ON mall.* TO 'mall'@'localhost';
 FLUSH PRIVILEGES;
+-- mall DATABASE 생성
+CREATE DATABASE mall;
 ```
 
 (.env 파일은 원래 노출하지 않아야 하지만 학습용 프로젝트이기 때문에 포함시켰습니다.)
