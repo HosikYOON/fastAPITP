@@ -28,3 +28,7 @@ uv run uvicorn main:app --port 8081 --reload
 ## 확인용 Swagger UI 페이지
 
 http://127.0.0.1:8081/docs
+
+or
+
+http://localhost:8081/docs
