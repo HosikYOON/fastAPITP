@@ -36,3 +36,15 @@ http://127.0.0.1:8081/docs
 or
 
 http://localhost:8081/docs
+
+## USER
+POST CRATE User
+{
+  "username": "hosik",
+  "email": "hosik@naver.ocm",
+  "name": "hosik",
+  "password": "qwer1234"
+}
+<img width="894" height="778" alt="image" src="https://github.com/user-attachments/assets/7b98e1fe-fcc7-4df2-b404-cfe8b1b7992b" />
+
+
