@@ -37,6 +37,11 @@ or
 
 http://localhost:8081/docs
 
+
+
+
+--- SWAGGER ---
+
 ## USER
 **POST CRATE User**
 {
